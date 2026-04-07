@@ -15,4 +15,22 @@
         {% endfor %}
     </ul>
     <p style="text-transform: uppercase">Augusta2.6</p>
+    <a href = {{ url_for('LOLI')}}>Hazelrink </a>
+
+    <form method = 'POST' action = "{{ url_for('home') }}">
+        <input type ='text' name ="username" placeholder ='USERNAME'> <br>
+        <input type ='password' name ="password" placeholder ='PASSWORD'> <br>
+        <input type = 'submit' value ='Log In'>
+    </form>
+
+    <h1>FILE UPLOAD</h1>
+    <form method = 'POST' action ='{{url_for('upload')}}' enctype = 'multipart/form-data'>
+        <input type ='file' name = 'file' accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel,'> <br>
+        <input type ='submit' value = 'Upload'>
+
+    <h1>CSV CONVERTER</h1>
+    <form method = 'POST' action ='{{url_for('csv_converter')}}' enctype = 'multipart/form-data'>
+        <input type ='file' name = 'file' accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel'> <br>
+        <input type ='submit' value = 'Upload'>
+    </form>
 {% endblock %}
