@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}My App{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li style="color:blue">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
     <h1>This will always be here</h1>
     {% block content %}
     {% endblock %}
