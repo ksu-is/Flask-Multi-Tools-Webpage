@@ -13,8 +13,8 @@
       - issue found : Temperature Converter tab appears "400 Bad Request: The browser (or proxy) sent a request that this server could not understand. KeyError: 'tem_value'
         - Solution: correct the variable name from 'tem_value' to 'temp_value'
       - issue found: duplicate content in calculator.html and converter.html due to lack of general structure template "layout.html"
-        -solution:- create layout.html with {%block content%} {& end block%}
-                  - In other templates, {% extends 'layout.html' %}
+        - solution: - create layout.html with {%block content%} {& end block%}
+                    - In other templates, {% extends 'layout.html' %}
 
 
 
