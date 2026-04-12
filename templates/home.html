@@ -1,51 +1,8 @@
 {% extends 'layout.html' %}
-{% block title %}Home Page{% endblock %}
-
-
 {% block content %}
-    <h1 style="color:blue">This is it |</h1>
-    <p class="special">CHICO</p>
-    <p>{{message}}</p>
-    <a href = {{ url_for('set_data') }}>set_session_data</a><br>
-    <a href = {{ url_for('get_data') }}>get_session_data</a><br>
-    <a href = {{ url_for('clear_session') }}>clear_session</a><br>
-    <a href ={{ url_for('set_cookie') }}>set_cookie</a><br>
-    <a href = {{ url_for('get_cookie') }}>get_cookie</a><br>
-    <a href = {{url_for('clear_cookie') }}>clear_cookie</a><br>
-    <a href = {{url_for('log_in')}}>Log In</a>
-    <p>{{list}}</p>
-    <ul>
-        {% for item in list %}
-            {% if item.lower() == 'charlotte hazelrink' %}
-                <li style="color:pink">{{item}}</li>
-            {% else %}
-                <li style ='color:red'>{{item}}</li>
-            {% endif %}
-        {% endfor %}
-    </ul>
-
-    <p style="text-transform: uppercase">Augusta2.6</p>
-
-    <a href = {{ url_for('LOLI')}}>Hazelrink</a>
-
-    <h1>Account Login</h1>
-    <form method = 'POST' action = "{{ url_for('home') }}">
-        <input type ='text' name ="username" placeholder ='USERNAME'><br>
-        <input type ='password' name ="password" placeholder ='PASSWORD'><br>
-        <input type = 'submit' value ='Log In'>
+    <h1 style='color:blue'>Welcome! {{message}}</h1>
+    <form method="POST" action='/'>
+        <input type="text" name="yourname" placeholder="Your Name Here">
+        <input type="submit" value="Submit">
     </form>
-
-    <h1 style="color:chocolate">FILE UPLOAD</h1>
-    <form method = 'POST' action ='{{url_for('upload')}}' enctype = 'multipart/form-data'>
-        <input type ='file' name = 'file' accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel'><br>
-        <input type ='submit' value = 'Upload'>
-
-    <h1>CSV CONVERTER</h1>
-    <form method = 'POST' action ='{{url_for('csv_converter')}}' enctype = 'multipart/form-data'>
-        <input type ='file' name = 'file' accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel'><br>
-        <input type ='submit' value = 'Upload'>
-    </form>
-
-    <h1>IMAGE</h1>
-    <img src="/img/Augusta.png" alt="Image" width="500">
 {% endblock %}

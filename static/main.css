@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: chocolate;
+}
+
+header {
+  background-color: #85efed;
+  height: 100px;
+  width: 100%;
+}
+
+header h1.logo {
+  margin-top: 30px;
+  font-size: 1.7em;
+  color: #e42447;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+header h1.logo:hover {
+  color: rgb(4, 211, 21);
+  text-decoration: none;
+}
+
+container { 
+  width: 80%;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  background-color: rgb(172, 194, 226);
+  padding: 0;
+  margin-left: 150px;
+}
+/*
+ * Center the body content
+ */
+
+
+.home {
+  padding: 50px 0 50px 0;
+  background-color: rgb(150, 17, 150);
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
+div.about {
+  padding: 10px 0 30px 0;
+  background-color: rgb(228, 244, 15);
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
+.menu {
+  float: right;
+  margin-top: 30px;
+  margin-right: 30px;
+  font-size: 1.7em;
+}
+
+.menu a {
+  color: rgb(5, 213, 1);
+  text-decoration: underline;
+}
+
+.menu a:hover {
+  color: rgb(160, 32, 235);
+  text-decoration: none;
+}
+.menu a + a {
+  margin-left: 20px;
+}
+
+.tool {
+  color:darkgoldenrod;
+}
+
+.tool a {
+  color:rgb(20, 9, 233)
+}
