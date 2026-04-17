@@ -1,2 +1,2 @@
 # Flask-Multi-Tools-Webpage
-Create a webserver running on local machine. Webpage will contain tabs for different purposes: state abbreviation convertor, simple sentence format transfoirmation, temperature convertor, simple calculator, etc...
+Create a webserver running on local machine. Webpage will contain tabs for different purposes: welcome to my web, state abbreviation convertor, guessing-number game, sessions-cookies display, Excel-file display, my motivation, temperature convertor, simple calculator... The web also incorporate the menu on top right corner: "Home" to return to homepage, "About" to know the purpose of the webpage, and "Contact" for feedbacks and recommendations.
