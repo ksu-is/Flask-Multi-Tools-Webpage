@@ -86,3 +86,12 @@ div.about {
 .tool a {
   color:rgb(20, 9, 233)
 }
+
+.luno img{
+  width: 500px;
+  height: 350px;
+}
+
+.luno img + img {
+  margin-left: 30px;
+}
