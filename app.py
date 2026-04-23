@@ -102,6 +102,24 @@ def excel_upload():
 def image():
     return render_template('image.html')
 
+@app.route('/text_transformation', methods=['GET','POST'])
+def text_transformation():
+    input_text = ''
+    result = ''
+    if request.method == 'POST':
+        input_text = request.form.get('input_text')
+        transformation_type = request.form.get('transformation_type')
+
+        if transformation_type == 'uppercase':
+            result = input_text.upper()
+        elif transformation_type == 'lowercase':
+            result = input_text.lower()
+        elif transformation_type == 'capitalize':
+            result = input_text.capitalize()
+        elif transformation_type == 'title':
+            result = input_text.title()
+    return render_template('text_transformation.html', input_text=input_text, result=result)
+
 if __name__ == '__main__':
     app.run(debug=True)
 

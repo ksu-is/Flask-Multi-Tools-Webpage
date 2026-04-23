@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1 style='color:rgb(7, 128, 228)'>Text Transformation</h1>
+    <form method="POST" action="{{url_for('text_transformation')}}">
+        <label>Input text: </label>
+        <input type="text" name="input_text" required>
+        <select name="transformation_type">
+            <option value="uppercase">Uppercase</option>
+            <option value="lowercase">Lowercase</option>
+            <option value="capitalize">Capitalize</option>
+            <option value="title">Title Case</option>
+        </select>
+        <input type="submit" value="Transform">
+    </form>
+
+    {% if result %}     
+            <h2>Original: <span style="color:rgb(248, 0, 136)">{{input_text}}</span></h2>   
+            <h2>Transformed: <span style="color:rgb(228, 22, 180)">{{result}}</span></h2>
+    {% endif %}
+{% endblock %}

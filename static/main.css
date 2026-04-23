@@ -26,6 +26,10 @@ header h1.logo:hover {
   text-decoration: none;
 }
 
+h2 {
+  color:rgb(7, 128, 228)
+}
+
 container { 
   width: 80%;
   height: 650px;
