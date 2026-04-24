@@ -32,7 +32,7 @@ h2 {
 
 container { 
   width: 80%;
-  height: 678px;
+  height: 674px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,4 +98,12 @@ div.about {
 
 .luno img + img {
   margin-left: 30px;
+}
+
+footer {
+  background-color: rgb(85, 85, 85);
+  color: white;
+  font-size: 8px;
+  text-align: center;
+  padding: 7px;
 }
