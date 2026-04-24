@@ -6,7 +6,7 @@
 
 <body>
     <header>
-        <h1 class="logo">Flask Application</h1>
+        <h1 class="logo"><a href="{{ url_for('home') }}">Flask Multi-Tools Website</a></h1>
         <nav>
             <ul class="menu">
                 <a href="{{ url_for('home') }}">Home</a>
@@ -28,13 +28,13 @@
             <a href="/text_transformation">Text Transformation</a>
         </ul>
 
-    {% block content %}
+        {% block content %}
     
-    {% endblock %}
+        {% endblock %}
     </container>
 
     <footer>
-        <h1>&copy; 2026 Quang Huynh - Spring Semester</h1>
+        <h1>&copy; Quang Huynh - 2026 Spring Semester</h1>
     </footer>  
 </body>
 </html>

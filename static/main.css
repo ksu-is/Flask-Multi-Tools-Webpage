@@ -21,11 +21,15 @@ header h1.logo {
   transform: translateX(-50%);
 }
 
-header h1.logo:hover {
+header h1.logo a:hover {
   color: rgb(4, 211, 21);
   text-decoration: none;
 }
 
+header h1.logo a {
+  color: #e42447;
+  text-decoration: none;
+}
 h2 {
   color:rgb(7, 128, 228)
 }
@@ -94,6 +98,8 @@ div.about {
 .luno img{
   width: 550px;
   height: 350px;
+  border: blue solid 5px;
+  
 }
 
 .luno img + img {
