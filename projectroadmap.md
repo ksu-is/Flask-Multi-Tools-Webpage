@@ -16,5 +16,10 @@
         - solution: - create layout.html with {%block content%} {& end block%}
                     - In other templates, {% extends 'layout.html' %}
 
+## SPRINT 2
+- [x] Learn Flask tutorial in Youtube
+- [x] Coding and using git to manage code
+- [x] Make updates and add commit messages in KSU-IS repository
+- [x] Commit at least 6 code changes of significant size
 
 
