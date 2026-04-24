@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session, make_response
 from miscellaneous.states import us_states
 import random
 import pandas as pd
 
 app = Flask(__name__, static_folder='static', static_url_path= '/', template_folder='templates')
+app.secret_key = '1st application development'
 
 @app.route('/', methods=['GET','POST'])
 def home():
@@ -119,6 +120,52 @@ def text_transformation():
         elif transformation_type == 'title':
             result = input_text.title()
     return render_template('text_transformation.html', input_text=input_text, result=result)
+
+@app.route('/session_cookies', methods=['GET','POST'])
+def session_cookies():
+    message1 = ''
+    message2 = ''
+    if request.method == 'POST':
+        set_session = request.form.get('set_session')
+        get_session = request.form.get('get_session')
+        clear_session = request.form.get('clear_session')
+        set_cookie = request.form.get('set_cookie')
+        get_cookie = request.form.get('get_cookie')
+        clear_cookie = request.form.get('clear_cookie')
+
+        # Session management
+        if set_session:
+            session['name1'] = 'Quang'
+            session['pet1'] = 'chico'
+            message1 = 'Session data set'
+        elif get_session:
+            if 'name1' in session.keys() and 'pet1' in session.keys():
+                value1 = session['name1']
+                value2 = session['pet1']
+                message1 = f"[name1 : {value1}] , [pet1 : {value2}]"
+            else:
+                message1 = 'No session data found'
+        elif clear_session:
+            session.clear()
+            message1 = 'Session cleared'
+
+        # Cookie management
+        elif set_cookie:
+            response = make_response(render_template('session_cookie.html', message2 = 'Cookie set'))
+            response.set_cookie(key='Wuthering Waves', value='2.6')
+            return response
+        elif get_cookie:
+            if 'Wuthering Waves' in request.cookies:
+                cookie_value = request.cookies['Wuthering Waves']
+                message2 = f"Cookie value: {cookie_value}"
+            else:
+                message2 = 'No cookie found'
+        elif clear_cookie:
+            response = make_response(render_template('session_cookie.html', message2 = 'Cookie cleared'))
+            response.set_cookie(key='Wuthering Waves', expires=0)
+            return response
+
+    return render_template('session_cookie.html', message1=message1, message2=message2)
 
 if __name__ == '__main__':
     app.run(debug=True)
