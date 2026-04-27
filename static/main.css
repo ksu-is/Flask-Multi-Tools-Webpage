@@ -10,8 +10,8 @@ header {
 }
 
 header h1.logo {
-  margin-top: 30px;
-  font-size: 1.7em;
+  margin-top: 35px;
+  font-size: 1.9em;
   text-transform: uppercase;
   position: absolute;
   left: 50%;
@@ -63,9 +63,9 @@ div.about {
 
 .menu {
   float: right;
-  margin-top: 30px;
-  margin-right: 30px;
-  font-size: 1.7em;
+  margin-top: 40px;
+  margin-right: 20px;
+  font-size: 1.5em;
 }
 
 .menu a {
@@ -79,7 +79,15 @@ div.about {
 }
 
 .menu a + a {
-  margin-left: 20px;
+  margin-left: 10px;
+}
+
+.user {
+  float: left; 
+  margin-left: 20px; 
+  margin-top: 40px; 
+  font-size: 1.5em;
+  color: blue;
 }
 
 .tool {

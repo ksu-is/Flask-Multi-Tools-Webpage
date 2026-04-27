@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, make_response
+from flask import Flask, render_template, request, redirect, session, make_response, url_for, flash
 from miscellaneous.states import us_states
 import random
 import pandas as pd
@@ -6,6 +6,10 @@ import math
 
 app = Flask(__name__, static_folder='static', static_url_path= '/', template_folder='templates')
 app.secret_key = '1st application development'
+users = {
+    "Luno": "1234",
+    "chico": "eating"
+}
 
 @app.route('/', methods=['GET','POST'])
 def home():
@@ -26,11 +30,11 @@ def contact():
 @app.route('/state_abbreviation', methods=['GET','POST'])
 def state_abbreviation():
     full_state_name = ''
-    abbreviation = ''
+    state_abbreviation = ''
     if request.method == 'POST':
-        abbreviation = request.form.get('state_abbreviation')
-        full_state_name = us_states[abbreviation]
-    return render_template('state_abbreviation.html', us_states=us_states, full_state_name=full_state_name, abbreviation=abbreviation)
+        state_abbreviation = request.form.get('state_abbreviation')
+        full_state_name = us_states[state_abbreviation]
+    return render_template('state_abbreviation.html', us_states=us_states, full_state_name=full_state_name, state_abbreviation=state_abbreviation)
 
 @app.route('/calculator',methods=['GET','POST'])
 def calculator():
@@ -107,6 +111,9 @@ def guess_number():
 
 @app.route('/excel_upload', methods=['GET', 'POST'])
 def excel_upload():
+    if 'user' not in session:
+        flash('Please log in first', 'warning')
+        return redirect(url_for('login'))
     if request.method == 'POST':
         file = request.files['file']
         df = pd.read_excel(file)
@@ -180,6 +187,28 @@ def session_cookies():
             return response
 
     return render_template('session_cookie.html', message1=message1, message2=message2)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        # Not recommended for credential storage in production
+        if username in users and users[username] == password:
+            session['user'] = username
+            flash('Login successful!')
+            return redirect(url_for('home'))
+        else:
+            flash('Invalid username or password')
+    
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.pop('user', None)
+    flash('Logged out successfully', 'info')
+    return redirect(url_for('home'))
 
 if __name__ == '__main__':
     app.run(debug=True)

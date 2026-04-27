@@ -4,6 +4,6 @@
     <h1 style='color: chocolate; text-transform: uppercase'>Excel File Upload</h1>
     <form method = 'POST' action ='{{url_for('excel_upload')}}' enctype = 'multipart/form-data'>
         <input type ='file' name ='file' accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel'>
-        <input type ='submit' value ='Upload'>
+        <button type ='submit'>Upload</button>
     </form>
 {% endblock %}

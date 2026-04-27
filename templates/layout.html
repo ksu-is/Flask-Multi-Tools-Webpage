@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
     <meta charset="UTF-8">
-    <title>Quang Huynh's Development</title>
+    <title>Quang Huynh's Website</title>
     <link rel="stylesheet" href='/main.css'>
 
 <body>
     <header>
         <h1 class="logo"><a href="{{ url_for('home') }}">Flask Multi-Tools Website</a></h1>
+        <p class="user"> User: {{ session.get('user') }}</p>
         <nav>
             <ul class="menu">
                 <a href="{{ url_for('home') }}">Home</a>
                 <a href="{{ url_for('about') }}">About</a>
-                <a href="{{ url_for('contact') }}">Contact</a>
+                <a href="{{ url_for('contact') }}">Contact</a>  
+                {% if 'user' in session %}
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                {% endif %}
             </ul>
-        </nav>
         </nav> 
     </header>
 
@@ -29,13 +34,18 @@
             <a href="/session_cookies">Session & Cookie</a>
         </ul>
 
+        {% with messages = get_flashed_messages(with_categories = True) %}
+            {% for category, message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endwith %}
         {% block content %}
     
         {% endblock %}
     </div>
 
     <footer>
-        <h1>&copy; LUNO - 2026 Spring Semester</h1>
+        <h1>&copy; Quang Huynh - 2026 Spring Semester</h1>
     </footer>  
 </body>
 </html>

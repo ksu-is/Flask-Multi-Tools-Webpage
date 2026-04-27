@@ -8,10 +8,10 @@
                 <option>{{key}}</option>
             {% endfor %}
         </select>
-        <input type="submit" value="Convert">
+        <button type="submit">Convert</button>
     </form>
 
-    {% if full_state_name and abbreviation %}
-        <h1>{{abbreviation}} - {{full_state_name}}</h1>
+    {% if full_state_name %}
+        <h1>{{state_abbreviation}} - {{full_state_name}}</h1>
     {% endif %}
 {% endblock %}
