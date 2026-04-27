@@ -67,30 +67,40 @@ def guess_number():
     result = '' 
     guess = '' 
     count = ''
+    reset = ''
     if request.method == 'POST':
         level = int(request.form.get('level'))
         attempts = int(request.form.get('attempts'))
         guess = int(request.form.get('guess', 0))
         count = int(request.form.get('count', 0))
         target = int(request.form.get('target',0))
+        reset = request.form.get('reset')
 
-        if not target:
+        if not target or reset:
             if level == 1:
                 target = random.randint(1, 9)
             elif level == 2:
                 target = random.randint(10, 99)
-            else:
+            elif level == 3:
                 target = random.randint(100, 999)
+            elif level == 4:
+                target = random.randint(1000, 9999)
+            count = 0
 
         if guess:
-            if count < attempts:
+            count += 1
+            if count <= attempts:
                 if guess == target:
                     result = f"Congratulations! You guessed the number {target}!"
-                else:                  
-                    result = "Sorry, that's not the correct number. Try again!"
-                count += 1
-                
-            if count >= attempts:
+                else:
+                    if count == attempts:
+                        result = f"Out of attempts - the number was {target}."
+                    else:
+                        if guess < target:                
+                            result = "Too low. Try again!"
+                        else:
+                            result = "Too high. Try again!"
+            else:
                 result = f"Out of attempts - the number was {target}."
 
     return render_template('guess_number.html', level=level, result=result, attempts=attempts, guess=guess, count=count, target=target)

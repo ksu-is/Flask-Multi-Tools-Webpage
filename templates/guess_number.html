@@ -8,17 +8,20 @@
             <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
+            <option value=4>4</option>
         </select>
     <label>Number of Attempts</label>
         <select name="attempts">
             <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
         </select>
     <button type="submit">Play Game</button>
 </form> 
 
-{% if target %}
+{% if target or reset %}
     <form method="POST" action="{{url_for('guess_number')}}">
         <h1>Guess {{level}}-Digit Number with {{attempts}} Attempts</h1>
         <input type="hidden" name="level" value={{level}}>
@@ -35,7 +38,17 @@
 
 {% if result %}
     <h1>{{result}}</h1>
-    <p style="color:yellow">Attempts left: {{ attempts|int - count|int }}</p>
+    {% if count < attempts %}
+        <p style="color:yellow">Attempts left: {{ attempts|int - count|int }}</p>
+    {% endif %}
+    {% if count >= attempts %}
+        <p style="color:yellow">0 Attempts left</p>
+    {% endif %}
+
+    <form method="POST" action="{{url_for('guess_number')}}">
+        <input type="hidden" name="level" value={{level}}>
+        <input type="hidden" name="attempts" value={{attempts}}>
+    <button type="submit" name="reset" value="true">Reset Game</button>
 {% endif %}
 
 {% endblock %}
