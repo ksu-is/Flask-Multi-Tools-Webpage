@@ -2,7 +2,7 @@
 {% block content %}
     <h1> Simple Calculator</h1>
     <form method="POST" action="{{url_for('calculator')}}">
-        <lable>First Number:</lable>
+        <label>First Number:</label>
         <input type="number" name="first_number" required>
         <label>Operator</label>
         <select name="operator">
@@ -11,9 +11,9 @@
             <option>X</option>
             <option>÷</option>
         </select>
-        <lable>Second Number:</lable>
+        <label>Second Number:</label>
         <input type="number" name="second_number" required>
-        <input type="submit" value='='>       
+        <button type="submit">=</button>       
     </form>
 
     {% if result %}

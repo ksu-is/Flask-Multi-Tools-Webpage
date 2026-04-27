@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, session, make_respo
 from miscellaneous.states import us_states
 import random
 import pandas as pd
+import math
 
 app = Flask(__name__, static_folder='static', static_url_path= '/', template_folder='templates')
 app.secret_key = '1st application development'
@@ -82,10 +83,11 @@ def guess_number():
         if guess:
             if count < attempts:
                 if guess == target:
-                    result = "Congratulations! You guessed the number."
+                    result = f"Congratulations! You guessed the number {target}!"
                 else:                  
-                    result = "Sorry, that's not the correct number. Try again."
-                    count += 1
+                    result = "Sorry, that's not the correct number. Try again!"
+                count += 1
+                
             if count >= attempts:
                 result = f"Out of attempts - the number was {target}."
 

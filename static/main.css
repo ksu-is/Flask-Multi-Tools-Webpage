@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  padding: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: chocolate;
 }
@@ -8,17 +7,20 @@ body {
 header {
   background-color: #85efed;
   height: 100px;
-  width: 100%;
 }
 
 header h1.logo {
   margin-top: 30px;
   font-size: 1.7em;
-  color: #e42447;
   text-transform: uppercase;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
+
+header h1.logo a {
+  color: #e42447;
+  text-decoration: none;
 }
 
 header h1.logo a:hover {
@@ -26,15 +28,12 @@ header h1.logo a:hover {
   text-decoration: none;
 }
 
-header h1.logo a {
-  color: #e42447;
-  text-decoration: none;
-}
 h2 {
   color:rgb(7, 128, 228)
 }
 
-container { 
+/*center the content of the page*/
+.container { 
   width: 80%;
   height: 674px;
   display: flex;
@@ -43,13 +42,8 @@ container {
   align-items: center;
   font-family: "Montserrat", sans-serif;
   background-color: rgb(172, 194, 226);
-  padding: 0;
   margin-left: 150px;
 }
-/*
- * Center the body content
- */
-
 
 .home {
   padding: 50px 0 50px 0;
@@ -76,13 +70,14 @@ div.about {
 
 .menu a {
   color: rgb(5, 213, 1);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .menu a:hover {
-  color: rgb(160, 32, 235);
+  color: #e42447;
   text-decoration: none;
 }
+
 .menu a + a {
   margin-left: 20px;
 }
