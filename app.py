@@ -49,12 +49,14 @@ def calculator():
             result = float(first_number) - float(second_number)
         elif operator == "X":
             result = float(first_number) * float(second_number)
-        else:
+        elif operator == "÷":
             if float(second_number) == 0:
                 result = "Error - Cannot divide by zero"
             else:
                 result = float(first_number) / float(second_number)
-       
+        elif operator == "^":
+            result = math.pow(float(first_number), float(second_number))
+        
     return render_template('calculator.html',result=result,first_number=first_number,second_number=second_number,operator=operator)
 
 @app.route('/guess_number', methods=['GET','POST'])
