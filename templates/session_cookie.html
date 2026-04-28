@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h1>Session</h1>
+    <h2>Session</h2>
     <form method="POST" action="{{url_for('session_cookies')}}">
         <p style="color: chocolate;" align="center">{{message1}}</p><br>
         <input type="submit" name='set_session' style="color: red;" value="Set Session">
