@@ -118,6 +118,7 @@ def image():
 @app.route('/text_transformation', methods=['GET','POST'])
 def text_transformation():
     input_text = ''
+    transformation_type = ''
     result = ''
     if request.method == 'POST':
         input_text = request.form.get('input_text')
@@ -131,7 +132,7 @@ def text_transformation():
             result = input_text.capitalize()
         elif transformation_type == 'title':
             result = input_text.title()
-    return render_template('text_transformation.html', input_text=input_text, result=result)
+    return render_template('text_transformation.html', input_text=input_text, transformation_type=transformation_type, result=result)
 
 @app.route('/session_cookies', methods=['GET','POST'])
 def session_cookies():

@@ -3,14 +3,14 @@
 {% block content %}
 <h1>Guess the Number Game</h1>
 <form method="POST" action="{{url_for('guess_number')}}">
-    <label>Level of Difficulty:</label>
+    Level of Difficulty:
         <select name="level">
             <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
             <option value=4>4</option>
         </select>
-    <label>Number of Attempts</label>
+    Number of Attempts:
         <select name="attempts">
             <option value=1>1</option>
             <option value=2>2</option>
@@ -27,10 +27,10 @@
         <input type="hidden" name="level" value={{level}}>
         <input type="hidden" name="attempts" value={{attempts}}>
         <input type="hidden" name="target" value={{target}}>
+        <input type="hidden" name="count" value={{count}}>
         <div align="center">
-            <label>Your Guess:</label>
+            Your Guess:
             <input type="number" name="guess" placeholder="Enter your guess" required>
-            <input type="hidden" name="count" value={{count}}>
             <button type="submit">Let's try</button>
         </div>
     </form>
