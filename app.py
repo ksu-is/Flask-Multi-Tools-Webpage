@@ -18,15 +18,6 @@ def home():
         yourname = request.form.get('yourname')
     return render_template('home.html', message= yourname)
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
-
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
-
 @app.route('/state_abbreviation', methods=['GET','POST'])
 def state_abbreviation():
     full_state_name = ''
@@ -38,10 +29,10 @@ def state_abbreviation():
 
 @app.route('/calculator',methods=['GET','POST'])
 def calculator():
-    result =''
     first_number = ''
     second_number = ''  
     operator = ''
+    result =''
     if request.method == 'POST':
         first_number = request.form.get("first_number")
         second_number = request.form.get("second_number")
@@ -61,7 +52,7 @@ def calculator():
         elif operator == "^":
             result = math.pow(float(first_number), float(second_number))
         
-    return render_template('calculator.html',result=result,first_number=first_number,second_number=second_number,operator=operator)
+    return render_template('calculator.html',first_number=first_number,second_number=second_number,operator=operator,result=result)
 
 @app.route('/guess_number', methods=['GET','POST'])
 def guess_number():
@@ -187,6 +178,14 @@ def session_cookies():
             return response
 
     return render_template('session_cookie.html', message1=message1, message2=message2)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

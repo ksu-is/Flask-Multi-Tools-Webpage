@@ -2,18 +2,18 @@
 {% block content %}
     <h1> Simple Calculator</h1>
     <form method="POST" action="{{url_for('calculator')}}">
-        <label>First Number:</label>
-        <input type="number" name="first_number" required>
-        <label>Operator</label>
-        <select name="operator">
-            <option>+</option>
-            <option>-</option>
-            <option>X</option>
-            <option>÷</option>
-            <option>^</option>
-        </select>
-        <label>Second Number:</label>
-        <input type="number" name="second_number" required>
+        First Number:
+            <input type="number" name="first_number" required>
+        Operator
+            <select name="operator">
+                <option>+</option>
+                <option>-</option>
+                <option>X</option>
+                <option>÷</option>
+                <option>^</option>
+            </select>
+        Second Number:
+            <input type="number" name="second_number" required>
         <button type="submit">=</button>  
     </form>
 

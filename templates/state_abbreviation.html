@@ -1,11 +1,12 @@
 {% extends 'layout.html' %}
+
 {% block content %}
     <h1> State Abbreviation Converter</h1>
     <form method="POST" action="{{url_for('state_abbreviation')}}">
-        <label>State Abbreviation:</label>
+        State Abbreviation:
         <select name="state_abbreviation">
-            {% for key in us_states %}
-                <option>{{key}}</option>
+            {% for state in us_states %}
+                <option value="{{state}}">{{state}}</option>
             {% endfor %}
         </select>
         <button type="submit">Convert</button>
