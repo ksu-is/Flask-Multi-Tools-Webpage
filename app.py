@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, make_response, url_for, flash
-from miscellaneous.states import us_states
+from miscellaneous.states import us_states # A dictionary mapping state abbreviations to full state names
 import random
 import pandas as pd
 import math
@@ -213,6 +213,7 @@ def logout():
     flash('Logged out successfully', 'info')
     return redirect(url_for('home'))
 
+#run the app and launch the server in debug mode. 
 if __name__ == '__main__':
     app.run(debug=True)
 
