@@ -5,12 +5,15 @@ import pandas as pd
 import math
 
 app = Flask(__name__, static_folder='static', static_url_path= '/', template_folder='templates')
-app.secret_key = '1st application development'
+app.secret_key = '1st application development' # In production, use a secure and random secret key, and keep it confidential.
+
+# Not recommended for credential storage in production. 
+# In production, use a secure method for storing and verifying user credentials,
+# such as hashing passwords and using a database (SQLite, MySQL).
 users = {
     "Luno": "1234",
     "chico": "eating"
-}
-
+}   
 @app.route('/', methods=['GET','POST'])
 def home():
     yourname = ''

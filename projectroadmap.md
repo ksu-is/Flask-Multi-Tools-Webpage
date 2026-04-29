@@ -22,4 +22,10 @@
 - [x] Make updates and add commit messages in KSU-IS repository
 - [x] Commit at least 6 code changes of significant size
 
-
+## Sprint 3
+- [x] More coding, refining, testing
+- [x] Add comments where are appropriate
+- [x] Explore more capabilities for the web
+- [x] Create ppt slide showing team members, title, purpose of the project, and add to new directory within the codes
+- [x] Restyle the website appearance
+- [x] Schedule presentation meeting on Teams
