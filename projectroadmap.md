@@ -24,8 +24,9 @@
 
 ## Sprint 3
 - [x] More coding, refining, testing
-- [x] Add comments where are appropriate
 - [x] Explore more capabilities for the web
-- [x] Create ppt slide showing team members, title, purpose of the project, and add to new directory within the codes
 - [x] Restyle the website appearance
+- [x] Add comments where are appropriate
+- [x] Updating README.md and projectroadmap.md
+- [x] Create ppt slide showing team members, title, purpose of project, and a copy to Github repository
 - [x] Schedule presentation meeting on Teams
