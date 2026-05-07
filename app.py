@@ -14,6 +14,7 @@ users = {
     "Luno": "1234",
     "chico": "eating"
 }   
+
 @app.route('/', methods=['GET','POST'])
 def home():
     yourname = ''
@@ -100,7 +101,6 @@ def guess_number():
                             result = "Too high. Try again!"
             else:
                 result = f"Out of attempts - the number was {target}."
-
     return render_template('guess_number.html', level=level, result=result, attempts=attempts, guess=guess, count=count, target=target)
 
 @app.route('/excel_upload', methods=['GET', 'POST'])
