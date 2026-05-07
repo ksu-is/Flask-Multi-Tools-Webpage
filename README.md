@@ -1,3 +1,3 @@
 # Flask-Multi-Tools-Webpage
 Create a webserver running on local machine. Webpage will contain tabs for different purposes: welcome to my web, state abbreviation convertor, simple calculator, guessing-number game, Excel-upload display, motivation images, text transformation, and  sessions-cookies display
-The web also incorporate the menu on top right corner: "Home" to return to homepage, "About" to know the purpose of the webpage, "Contact" for feedbacks and recommendations, and "Login" for simple user verfication (though it is not recommended for credential storage in real production, should have utilize SQLite or MySQL)
+The web also incorporate the menu on top right corner: "Home" to return to homepage, "About" to know the purpose of the webpage, "Contact" for feedbacks and recommendations, and "Login" for simple user verification (though it is not recommended for credential storage in real production, should have utilize SQLite or MySQL)
